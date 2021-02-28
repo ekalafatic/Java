@@ -46,13 +46,11 @@ public class OpenClosed {
     }
 
     private static boolean isOpen(Object peek) {
-
         List<String> elems = new ArrayList<>(List.of("{", "[", "("));
         if(peek != "" && elems.contains(peek.toString())){
             return true;
         }else {
             return false;
         }
-
     }
 }

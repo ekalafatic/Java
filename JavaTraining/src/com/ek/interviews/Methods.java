@@ -169,7 +169,10 @@ public class Methods {
         // Lista con elementos iniciados
         List<String> elems = new ArrayList<>(List.of("{", "[", "("));
 
-
+        // Java menor a 9
+        List<String> strings = new ArrayList<>(
+                Arrays.asList("Hello", "world")
+        );
 
           /******************/
          /**** VECTORES ****/
