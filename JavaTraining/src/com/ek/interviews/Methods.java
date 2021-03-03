@@ -2,6 +2,7 @@ package com.ek.interviews;
 
 import java.text.Normalizer;
 import java.util.*;
+import java.util.function.Predicate;
 
 public class Methods {
 
@@ -137,6 +138,7 @@ public class Methods {
          /***** STACK *****/
         /*****************/
 //        https://www.geeksforgeeks.org/stack-class-in-java/
+//        Estructuras tipo LIFO
 
         // Default initialization of Stack, puede tener cualquier tipo
         Stack stack = new Stack();
@@ -161,22 +163,134 @@ public class Methods {
         // Si un el stack contiene cierto elemento, si lo encuentra devuelve la posición
         stack.search("hola");
 
+        Iterator iteratorStack = stack.iterator();
+        System.out.println("Iterando Stack");
+        while (iteratorStack.hasNext()) {
+            System.out.println(iteratorStack.next() + " ");
+        }
+
+
+        /*************************/
+         /***** COLAS (QUEUE) *****/
+        /*************************/
+//        ESTRUCTURA TIPO FIFO
+//        https://www.geeksforgeeks.org/queue-data-structure/
+        Queue<Object> cola = new LinkedList<>();
+
+        // Se agregan elementos
+        cola.add("Hola");
+        cola.add(2);
+        cola.add("jaja");
+        cola.add(5.4);
+        System.out.println("COLA: " + cola);
+
+        // Devuelve el head de la cola (primer elemento), el q se va a eliminar
+        cola.peek();
+
+        // Remueve el head de la cola y devuelve true si se removió correctamente.
+        // También remueve un objeto específico (aunque se pierde el sentido de la cola)
+        cola.remove();
+
+        // Remueve el objeto head de la cola y lo devuelve
+        Object removido = cola.poll();
+
+        // Devuelve true si la cola contiene el objeto
+        cola.contains("hola");
+
+        cola.isEmpty();
+
+        // Remueve todo
+        cola.clear();
+
+        // Añadir lista a cola
+        List<Object> l = new LinkedList<>();
+        l.add("naranja");
+        l.add("pera");
+        cola.addAll(l);
+
+        // Ver si contiene toda una lista
+        cola.containsAll(l); // true
+
+        // Remueve todo un grupo de objetos
+        cola.removeAll(l);
+
+        // Comparación de colas
+        cola.addAll(l);
+        Queue<Object> cola2 = new LinkedList<>();
+        cola2.addAll(l);
+        cola.equals(cola2); // true
+
+        // If directo en cola (no se cómo hacer la comparación con Objects)
+        Queue<Integer> cola3 = new LinkedList<>();
+        cola3.add(1);
+        cola3.add(9);
+        cola3.add(11);
+        Predicate<Integer> pr= a->(a>10);
+        cola3.removeIf(pr); // [1, 9]
+
+        // OTROS
+        // Similar a peek, pero imprime "NoSuchElementException" cuando la cola está vacía
+        cola.element();
+        // Igual a add() pero en vez de lanzar una excepción cuando la cola está llena, devuelve falso
+        cola.offer("algo");
+
+        Iterator iteratorCola = cola.iterator();
+        System.out.println("Iterando cola");
+        while (iteratorCola.hasNext()) {
+            System.out.println(iteratorCola.next() + " ");
+        }
+
 
           /******************/
          /***** LISTAS *****/
         /******************/
 //        https://www.geeksforgeeks.org/list-interface-java-examples/
         // Lista con elementos iniciados
-        List<String> elems = new ArrayList<>(List.of("{", "[", "("));
+        List<String> l1 = new ArrayList<>(List.of("{", "[", "("));
 
         // Java menor a 9
         List<String> strings = new ArrayList<>(
                 Arrays.asList("Hello", "world")
         );
 
+        List<Object> l2 = new LinkedList<>();
+        l2.add(2);
+        l2.add(3);
+        l2.add(5);
+
+        // Añadir colección
+        l2.addAll(l1);
+
+        l2.size();
+
+        l2.clear();
+
+        Object o = 2;
+        l2.remove(o);
+
+        l2.remove(2);
+
+        l2.isEmpty();
+
+        // Reemplaza elemento del índice 1 por valor 4
+        l2.set(1,4);
+
+        l2.indexOf(4); //1
+
+        // Comparación de listas
+        l2.equals(l1); //false
+
+        l2.contains(4); //true
+
+        l2.containsAll(l1); //true
+
+        // Ordena colecciones, pero si es de un tipo específico
+        Collections.sort(l1);
+
           /******************/
          /**** VECTORES ****/
         /******************/
+//        https://www.geeksforgeeks.org/java-util-vector-class-java/
 
           /****************/
          /**** ARRAYS ****/
