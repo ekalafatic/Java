@@ -1,10 +1,32 @@
 package com.ek.interviews;
 
+import javax.swing.*;
+import java.io.IOException;
 import java.text.Normalizer;
 import java.util.*;
 import java.util.function.Predicate;
 
 public class Methods {
+
+    public static ArrayList<String> stringDivided(String s, int cwords){
+
+        // cwords: cantidad de letras a dividir
+        ArrayList<String> sList = new ArrayList<String>();
+
+        if(s.isEmpty() || cwords < 1){
+//            JOptionPane.showMessageDialog (null, "String s or cwords shouldn't be empty", "stringDivided error", JOptionPane.ERROR_MESSAGE);
+            throw new NullPointerException("String s or cwords shouldn't be empty");
+        }
+
+        int end = 0;
+
+        for (int i = 0; i<s.length(); i++){
+            end = i + cwords;
+            sList.add(s.substring(i,end));
+        }
+
+        return sList;
+    }
 
     public static String limpiarString(String cadena) {
         String limpio =null;
@@ -100,6 +122,19 @@ public class Methods {
         word = "mañana";
         word = word.replaceAll("[ñ]", ""); // maana
 
+        // Extrae una parte del string pasándo como parámetro un punto de inicio y final
+//        word.substring(i,endPoint);
+
+        System.out.println("Word: " + word);
+        System.out.println("Tamaño de word: " + word.length());
+
+        ArrayList<String> slist = new ArrayList<String>();
+
+        slist = stringDivided(word , 0);
+
+        System.out.println("Salida stringDivided: " + slist);
+
+        word = word.toLowerCase();
 
 
           /*********************/
@@ -127,6 +162,12 @@ public class Methods {
         for ( String key : hasht.keySet() ) {
             key.toString();
         }
+
+        // Obtención de valores
+        for ( String key : hasht.keySet() ) {
+            hasht.get(key);
+        }
+
 
 
         // Conteo de palabras con tabla hash
@@ -265,15 +306,17 @@ public class Methods {
 
         l2.clear();
 
-        Object o = 2;
-        l2.remove(o);
+        Object ind = 2;
+        l2.remove(ind);
 
-        l2.remove(2);
+        l2.add("primer_valor");
+        l2.remove(0);
 
         l2.isEmpty();
 
-        // Reemplaza elemento del índice 1 por valor 4
-        l2.set(1,4);
+        l2.add("primer_valor");
+        // Reemplaza elemento de la pos 0 por valor
+        l2.set(0,"reemplaza_primer_valor");
 
         l2.indexOf(4); //1
 
@@ -300,6 +343,11 @@ public class Methods {
 
         // Array de 5 elementos (vector).
         char array[] = {'a','b','c','d','e'};
+
+        int arreglo[] = new int[2];
+        arreglo[0] = 1;
+        arreglo[1] = 2;
+//        System.out.println(arreglo[0]);
 
         // Array de 4x4 elementos (matriz).
         int array2[][] = { {1,2,3,4}, {5,6,7,8}};
