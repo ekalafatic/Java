@@ -7,6 +7,8 @@ import com.ek.estructuras.Nodo;
 import java.util.ArrayList;
 import java.util.List;
 
+// Inserción de ramas en arbol binario
+
 public class HierachiInsertion {
     public static void main(String[] args) {
         Arbol tree = new Arbol();

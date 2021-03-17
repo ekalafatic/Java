@@ -3,6 +3,22 @@ package com.ek.interviews;
 import java.lang.reflect.Array;
 import java.util.*;
 
+/*
+Problema coding Amazon
+Cuando el usuario escribe una palabra, se le ofrece autocompletado según lo que otros usuarios hallan buscado
+> Se brinca una lista de repositorio de palabras y customQuery como la palabra que busca el usuario
+> Se debe ofrecer palabras a partir de dos caraceteres en adelante
+Ejemplo:
+repository = mobile", "mouse", "mooneypoo", "mousepad", "mountain", "morocco", "monitor"
+String customQuery = "mouse";
+
+Búsquedas: mo mou mous mouse
+
+Salida:
+[[mobile, monitor, mooneypoo], [mountain, mouse, mousepad], [mouse, mousepad], [mouse, mousepad]]
+
+ */
+
 public class AmazonAutocomplete {
     public static ArrayList<String> stringDivided(String s, int cwords){
 
