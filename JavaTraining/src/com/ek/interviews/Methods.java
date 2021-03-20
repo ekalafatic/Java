@@ -294,6 +294,8 @@ public class Methods {
                 Arrays.asList("Hello", "world")
         );
 
+
+
         List<Object> l2 = new LinkedList<>();
         l2.add(2);
         l2.add(3);
